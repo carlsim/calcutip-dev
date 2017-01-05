@@ -1,0 +1,29 @@
+/**
+ *
+ *  Main.scss
+ *	Import file
+ *
+ **/
+
+/*-- Variable imports --*/
+@import './components/base/variables/_breakpoints.scss';
+@import './components/base/variables/_font-size.scss';
+@import './components/base/variables/_palette.scss';
+@import './components/base/variables/_containers.scss';
+
+/*-- Base Styles --*/
+@import "./components/base/_global.scss";
+@import "./components/base/_typography.scss";
+@import "./components/base/_utils.scss";
+
+/*-- Layout Styles --*/
+@import './components/layout/_container.scss';
+@import './components/layout/_flexbox.scss';
+
+/*-- Components --*/
+@import "./components/components/_footer.scss";
+@import "./components/components/_logo.scss";
+@import "./components/components/_item-box.scss";
+
+/*-- Pages --*/
+@import "./components/pages/_main-page.scss";

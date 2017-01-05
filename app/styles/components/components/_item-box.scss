@@ -1,0 +1,26 @@
+/**
+*	Item Box SCSS
+**/
+
+.item-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  cursor: pointer;
+  min-height: 250px;
+  .item-box--normal{
+    top: 250px;
+    bottom: 500px;
+  }
+  &:hover{
+    .item-box--hover{
+        top: 0px;
+        display: block;
+    }
+    transition: 0.2s ease-out;
+    background: #000;
+    opacity: 0.88;
+    color: #fff;
+  }
+}

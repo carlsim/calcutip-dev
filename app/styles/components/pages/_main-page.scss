@@ -1,0 +1,135 @@
+.main-page{
+  background: linear-gradient(to bottom, $colorYellow600, $colorYellow800);
+
+  /**
+   * header styles
+   */
+  header{
+    padding: 16px 24px;
+    .app-brand{
+      display: flex;
+      flex-direction: row;
+      cursor: default;
+      & * {
+        display: inline-block;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    .app-icon{
+      display: inline-block;
+      margin-right: 8px;
+    }
+    .app-name h1{
+      margin: 0;
+      color: $colorGrey900;
+      font-size: 18px;
+      text-transform: uppercase;
+    }
+  }
+  /**
+   * main styles
+   */
+  main{
+    min-height: 100vh;
+    margin-bottom: 72px;
+    /**
+     * total-area div
+     */
+    .total-area{
+        &__bg{
+
+        }
+        &__content{
+          color: $colorGrey900;
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6,
+          p{
+            margin: 0;
+          }
+          .sub-title{
+            
+            h2{
+              font-size: 14px;
+              font-weight: 300;
+              text-transform: uppercase;
+            }
+          }
+          .sub-num{
+            margin-bottom: 18px;
+            h3{
+              font-size: 20px;
+              font-weight: 400;
+            }
+          }
+          .hero-area{
+            .sub-num{
+              h3{
+                font-size: 48px;
+                font-weight: 400;
+              }
+            }
+          }
+          .total__more-area{
+            //height: auto; 
+            transition: .3s ease-out;
+          }
+          .total__more-btn{
+            cursor: pointer;
+          }
+        }
+    }
+
+    /**
+     * input-area div
+     */
+    .input-area{
+      &__bg{
+        margin-top: 50px;
+      }
+      &__content{
+        background: #fff;
+        padding: 32px;
+        border-radius: 3px;
+        color: $colorGrey900;
+      }
+      input{
+        border: none;
+        background-color: $colorGrey300;
+        padding: 6px 8px;
+        border-radius: 3px;
+        font-size: 14px;
+        width: 100%;
+      }
+      .input-area__item{
+        margin-bottom: 32px;
+      }
+      .input-area__more-area{
+          transition: .3s ease-out;
+        }
+      .input-area__more-btn{
+        cursor: pointer;
+      }
+    }
+    /**
+     * footer 
+     */
+    // footer{
+    //   width: 100%;
+    //   .area-1{
+    //     background: $colorGrey500;
+    //   }
+    // }
+  }
+
+  /**
+   * footer styles
+   */
+  footer{
+    //margin-top: 150px;
+  }
+}

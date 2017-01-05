@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalcuTip | A Tipping Calculator</title>
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Web Application Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="CalcuTip">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="CalcuTip">
+    <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+
+    <!-- Color the status bar on mobile devices -->
+    <meta name="theme-color" content="#2F3BA2">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500" rel="stylesheet">
+
+    <!-- Your styles -->
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+  <body class="main-page">
+    <header class="container container--widest">
+      <div class="app-brand">
+        <div class="app-icon">
+          <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M15,4A8,8 0 0,1 23,12A8,8 0 0,1 15,20A8,8 0 0,1 7,12A8,8 0 0,1 15,4M15,18A6,6 0 0,0 21,12A6,6 0 0,0 15,6A6,6 0 0,0 9,12A6,6 0 0,0 15,18M3,12C3,14.61 4.67,16.83 7,17.65V19.74C3.55,18.85 1,15.73 1,12C1,8.27 3.55,5.15 7,4.26V6.35C4.67,7.17 3,9.39 3,12Z" fill="#212121"/></svg>
+        </div>
+        <div class="app-name">
+          <h1>CalcuTip</h1>
+        </div>
+      </div><!--end of app-brand div-->
+    </header>
+    <main >
+      <div class="total-area">
+        <div class="total-area__bg container container--narrow">
+          <div class="total-area__content">
+            <div class="hero-area">
+              <div class="sub-title">  
+                <h2>Total Tip</h2>
+              </div><!--end of hero-title-->
+              <div class="sub-num">
+                <h3>
+                  $<span class="total-tip">0.00</span>
+                </h3>
+              </div><!--end of hero-num-->
+            </div><!--end of hero-area-->
+            <div class="total__more-area">
+              <div class="sub-title">  
+                <h2>Overall Total</h2>
+              </div>
+              <div class="sub-num">
+                <h3>
+                  $<span class="total-overall">0.00</span>
+                </h3>
+              </div>
+              <div class="sub-title">  
+                <h2>Tax</h2>
+              </div>
+              <div class="sub-num">
+                <h3>
+                  $<span class="total-tax">0.00</span>
+                </h3>
+              </div>
+              <div class="sub-title">  
+                <h2>Tip(with tax included)</h2>
+              </div>
+              <div class="sub-num">
+                <h3>
+                  $<span class="total-tip-tax-inc">0.00</span>
+                </h3>
+              </div>
+              <div class="sub-title">  
+                <h2>Overall Total (with tax included)</h2>
+              </div>
+              <div class="sub-num">
+                <h3>
+                  $<span class="total-overall-tax-inc">0.00</span>
+                </h3>
+              </div>
+            </div><!--end of totla__more-area-->
+            <div class="total__more-btn-area">
+              <span class="total__more-btn">More Info</span>
+            </div>
+          </div><!--end of total-area__content-->
+        </div><!--end of total-area__bg-->
+      </div><!--end of total-area-->
+      <div class="input-area">
+        <div class="input-area__bg container container--narrow">
+          <div class="input-area__content">
+            <div class="input-area__item">
+              <div>
+                <label for="bill-price">
+                  Enter the price on your bill
+                </label>
+              </div>
+              <span class="input-bill-price">
+                <input id="bill-price" type="number" value="22.60" placeholder="22.60"/>
+              </span><!--end of input-bill-price-->
+            </div>
+            <div class="input-area__item">
+              <div>
+                <label for="tip-pct">  
+                  Tip %
+                </label>
+              </div>
+              <span class="input-tip-pct">
+                <input id="tip-pct" type="number" placeholder="15" value="15"/>
+              </span><!--end of input-tip-pct"-->
+            </div>
+            <div class="input-area__more-area">
+              <div class="input-area__item">
+                <div>
+                  <label for="num-people">
+                    # of people
+                  </label>
+                </div>
+                <span class="input-num-people">
+                  <input id="num-people" type="number" placeholder="1" value="1"/>
+                </span><!--end of input-num-people-->
+              </div>
+              <div class="input-area__item"> 
+                <div>
+                  <label for="sales-tax">
+                    Sales Tax %
+                  </label>
+                </div>
+                <span class="input-sales-tax">
+                  <input  id="sales-tax" type="number" placeholder="13" value="13"/>
+                </span><!--end of input-sales-tax-->
+              </div>
+            </div><!--end of input-area__more-area-->
+            <div class="input-area__more-btn-area">
+              <span class="input-area__more-btn">More Info</span>
+            </div>
+          </div><!--end of input-area__content"-->
+        </div><!--end of input-area__bg-->
+      </div><!--end of input-area"-->
+    </main>
+    <footer>
+      <div class="footer__bg">
+        <div class="footer__content">
+          <div class="area-1">
+            <div class="social-media__area">
+              <div class="item__1">
+                <div class="social-area">
+                  <div class="item">
+                    <a href="https://twitter.com/carlsimcity" target="_blank" rel="noopener">
+                      <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z" fill="#424242"/></svg>
+                    </a>
+                  </div>
+                  <div class="item">
+                    <a href="https://plus.google.com/+CarlSim"  target="_blank" rel="noopener">
+                      <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M23,11H21V9H19V11H17V13H19V15H21V13H23M8,11V13.4H12C11.8,14.4 10.8,16.4 8,16.4C5.6,16.4 3.7,14.4 3.7,12C3.7,9.6 5.6,7.6 8,7.6C9.4,7.6 10.3,8.2 10.8,8.7L12.7,6.9C11.5,5.7 9.9,5 8,5C4.1,5 1,8.1 1,12C1,15.9 4.1,19 8,19C12,19 14.7,16.2 14.7,12.2C14.7,11.7 14.7,11.4 14.6,11H8Z" fill="#424242" /></svg>
+                    </a>
+                  </div>  
+                  <div class="item">
+                    <a href="https://www.instagram.com/simulatron/"  target="_blank" rel="noopener">
+                      <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" fill="#424242" /></svg>
+                    </a>
+                  </div>  
+                  <div class="item">
+                    <a href="https://github.com/carlsim"  target="_blank" rel="noopener">
+                      <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M4,2H20A2,2 0 0,1 22,4V20A2,2 0 0,1 20,22H14.85C14.5,21.92 14.5,21.24 14.5,21V18.26C14.5,17.33 14.17,16.72 13.81,16.41C16.04,16.16 18.38,15.32 18.38,11.5C18.38,10.39 18,9.5 17.35,8.79C17.45,8.54 17.8,7.5 17.25,6.15C17.25,6.15 16.41,5.88 14.5,7.17C13.71,6.95 12.85,6.84 12,6.84C11.15,6.84 10.29,6.95 9.5,7.17C7.59,5.88 6.75,6.15 6.75,6.15C6.2,7.5 6.55,8.54 6.65,8.79C6,9.5 5.62,10.39 5.62,11.5C5.62,15.31 7.95,16.17 10.17,16.42C9.89,16.67 9.63,17.11 9.54,17.76C8.97,18 7.5,18.45 6.63,16.93C6.63,16.93 6.1,15.97 5.1,15.9C5.1,15.9 4.12,15.88 5,16.5C5,16.5 5.68,16.81 6.14,17.97C6.14,17.97 6.73,19.91 9.5,19.31V21C9.5,21.24 9.5,21.92 9.14,22H4A2,2 0 0,1 2,20V4A2,2 0 0,1 4,2Z" fill="#424242" /></svg>
+                    </a>
+                  </div>  
+                  <div class="item">
+                    <a href="https://ca.linkedin.com/in/carl-sim-aa480a20" target="_blank" rel="noopener">
+                      <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M21,21H17V14.25C17,13.19 15.81,12.31 14.75,12.31C13.69,12.31 13,13.19 13,14.25V21H9V9H13V11C13.66,9.93 15.36,9.24 16.5,9.24C19,9.24 21,11.28 21,13.75V21M7,21H3V9H7V21M5,3A2,2 0 0,1 7,5A2,2 0 0,1 5,7A2,2 0 0,1 3,5A2,2 0 0,1 5,3Z" fill="#424242" /></svg>
+                    </a>
+                  </div>  
+                </div>
+              </div>
+            </div><!--end of social-media__area-->
+          </div><!--end of area-1 div-->
+          <div class="area-2">
+            <div class="copyright">
+              © 2017 Carl Sim
+            </div>
+          </div><!--end of area-2 div-->
+        </div><!--end of footer__content-->
+      </div><!--end of footer-bg-->
+    </footer>
+    <script type="text/javascript" src="./scripts/main.js" async defer></script>
+  </body>
+</html>

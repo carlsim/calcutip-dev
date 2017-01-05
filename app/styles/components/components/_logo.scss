@@ -1,0 +1,17 @@
+.logo{
+  display: flex;
+  flex-direction: row;
+  cursor: default;
+  &__name{
+    margin: auto 0;
+    font-weight: 700;
+    padding-right: 16px;
+    //color: $colorGrey500;
+    font-size: 28px;
+  }
+  &__subtitle{
+    border-left: $colorGrey900 1px solid;
+    padding-left: 16px;
+    flex-direction: column;
+  }
+}

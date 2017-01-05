@@ -1,0 +1,39 @@
+/**
+ *
+ * Global styles
+ *
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body,
+button {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.content{
+    position: relative;
+}
+
+html,
+body{
+	font-family: $fontPoppins;
+	font-size: $fontBase;
+}
+
+img{
+    height: auto;
+    width: 100%;
+}

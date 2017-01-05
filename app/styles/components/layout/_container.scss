@@ -1,0 +1,25 @@
+/**
+ *
+ * Container Styling
+ *
+ */
+
+.container{
+    margin: 0 auto;
+    padding: 0 24px;
+    &--regular{
+    	max-width: $containerRegular;
+    }
+    &--narrow{
+		max-width: $containerNarrow;
+    }
+    &--narrower{
+		max-width: $containerNarrower;
+    }
+    &--wide{
+		max-width: $containerWide;
+    }
+    &--wider{
+		max-width: $containerWide;
+    }
+}

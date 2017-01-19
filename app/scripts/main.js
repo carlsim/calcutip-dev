@@ -79,10 +79,29 @@
       this.inputNumPeople = document.querySelector(".input-num-people input");
       this.inputSalesTax = document.querySelector(".input-sales-tax input");
 
+      /**
+       * Member variables
+       */
+      this.inputBillPriceVal = 0;
+      this.inputBillPriceVal = 0;
+      this.inputTipPctVal = 0;
+      this.inputNumPeopleVal = 0;
+      this.inputSalesTaxVal = 0;
+      this.taxVal = 0;
+
+      /**
+       * Member methods
+       */
       this.onLoad = this.onLoad();
       this.updateValues = this.updateValues.bind(this);
       this.toggleTotalHide = this.toggleTotalHide.bind(this);
       this.toggleInputHide = this.toggleInputHide.bind(this);
+
+      this.calculateTotalTip = this.calculateTotalTip.bind(this);
+      this.calculateTotalOverall = this.calculateTotalOverall.bind(this);
+      this.calculateTotalTax = this.calculateTotalTax.bind(this);
+      this.calculateTotalTipTaxInc = this.calculateTotalTipTaxInc.bind(this);
+      this.calculateTotalOverallTaxInc = this.calculateTotalOverallTaxInc.bind(this);
 
       this.addEventListeners();
     }
@@ -106,92 +125,76 @@
     }
 
     toggleTotalHide(evt) {
-      this.totalMoreArea.classList.toggle("hidden");
+      if(this.totalMoreArea.classList.contains("hidden")){
+        this.totalMoreBtn.innerHTML = 'Less Bill Info';
+        this.totalMoreArea.classList.toggle("hidden");
+      }else{
+        this.totalMoreBtn.innerHTML = 'More Bill Info';
+        this.totalMoreArea.classList.toggle("hidden");
+      }
       console.log("Clicking on toggle hide");
     }
 
     toggleInputHide(evt) {
-      this.inputMoreArea.classList.toggle("hidden");
+      if(this.inputMoreArea.classList.contains("hidden")){
+        this.inputMoreBtn.innerHTML = 'Less Info';
+        this.inputMoreArea.classList.toggle("hidden");
+      }else{
+        this.inputMoreBtn.innerHTML = 'More Info';
+        this.inputMoreArea.classList.toggle("hidden");
+      }
       console.log("input Clicking on toggle hide");
     }
 
     updateValues(evt) {
-      let inputBillPriceVal = this.checkIsNaN(parseFloat(this.inputBillPrice.value));
-      let inputTipPctVal = this.checkIsNaN(parseFloat(this.inputTipPct.value));
-      let inputNumPeopleVal = this.checkIsNaN(parseFloat(this.inputNumPeople.value));
-      let inputSalesTaxVal = this.checkIsNaN(parseFloat(this.inputSalesTax.value));
+      this.inputBillPriceVal = this.checkIsNaN(parseFloat(this.inputBillPrice.value));
+      this.inputTipPctVal = this.checkIsNaN(parseFloat(this.inputTipPct.value));
+      this.inputNumPeopleVal = this.checkIsNaN(parseFloat(this.inputNumPeople.value));
+      this.inputSalesTaxVal = this.checkIsNaN(parseFloat(this.inputSalesTax.value));
 
       //Determine if num of people is 0 to avoid dividing by 0
-      inputNumPeopleVal = inputNumPeopleVal > 0 ? inputNumPeopleVal : 1;
+      this.inputNumPeopleVal = this.inputNumPeopleVal > 0 ? this.inputNumPeopleVal : 1;
 
-      this.totalTip.innerHTML = this.calculateTotalTip(
-        inputBillPriceVal,
-        inputTipPctVal,
-        inputNumPeopleVal,
-        inputSalesTaxVal
-      );
+      //Determine Tax
+      this.taxVal = (this.inputBillPriceVal) - (this.inputBillPriceVal / ((this.inputSalesTaxVal * 0.01) + 1));
 
-      this.totalOverall.innerHTML = this.calculateTotalOverall(
-        inputBillPriceVal,
-        inputTipPctVal,
-        inputNumPeopleVal,
-        inputSalesTaxVal
-      );
-
-      this.totalTax.innerHTML = this.calculateTotalTax(
-        inputBillPriceVal,
-        inputTipPctVal,
-        inputNumPeopleVal,
-        inputSalesTaxVal
-      );
-
-      this.totalTipTaxInc.innerHTML = this.calculateTotalTipTaxInc(
-        inputBillPriceVal,
-        inputTipPctVal,
-        inputNumPeopleVal,
-        inputSalesTaxVal
-      );
-
-      this.totalOverallTaxInc.innerHTML = this.calculateTotalOverallTaxInc(
-        inputBillPriceVal,
-        inputTipPctVal,
-        inputNumPeopleVal,
-        inputSalesTaxVal
-      );
+      //Do final calculations to find final values
+      this.totalTip.innerHTML = this.calculateTotalTip();
+      this.totalOverall.innerHTML = this.calculateTotalOverall();
+      this.totalTax.innerHTML = this.calculateTotalTax();
+      this.totalTipTaxInc.innerHTML = this.calculateTotalTipTaxInc();
+      this.totalOverallTaxInc.innerHTML = this.calculateTotalOverallTaxInc();
     }
 
     checkIsNaN(num){
       return isNaN(num) ? 0 : num;
     }
 
-    calculateTotalTip(inputBillPriceVal, inputTipPctVal, inputNumPeopleVal, inputSalesTaxVal) {
-      let tax = (inputBillPriceVal) - (inputBillPriceVal / ((inputSalesTaxVal * 0.01) + 1));
-      let totalNoTax = inputBillPriceVal - tax;
-      let finalTotalTip = (totalNoTax * (inputTipPctVal * 0.01)) / inputNumPeopleVal;
+    calculateTotalTip() {
+      let totalNoTax = this.inputBillPriceVal - this.taxVal;
+      let finalTotalTip = (totalNoTax * (this.inputTipPctVal * 0.01)) / this.inputNumPeopleVal;
       
       return parseFloat(finalTotalTip).toFixed(2);
     }
-    calculateTotalOverall(inputBillPriceVal, inputTipPctVal, inputNumPeopleVal, inputSalesTaxVal) {
-      let tax = (inputBillPriceVal) - (inputBillPriceVal / ((inputSalesTaxVal * 0.01) + 1));
-      let totalNoTax = inputBillPriceVal - tax;
-      let finalTotalTip = totalNoTax * (inputTipPctVal * 0.01);
 
-      let finalTotal = (inputBillPriceVal + finalTotalTip) / inputNumPeopleVal;;
+    calculateTotalOverall() {
+      let totalNoTax = this.inputBillPriceVal - this.taxVal;
+      let finalTotalTip = totalNoTax * (this.inputTipPctVal * 0.01);
+
+      let finalTotal = (this.inputBillPriceVal + finalTotalTip) / this.inputNumPeopleVal;
       
       return parseFloat(finalTotal).toFixed(2);
     }
-    calculateTotalTax(inputBillPriceVal, inputTipPctVal, inputNumPeopleVal, inputSalesTaxVal) {
-      let tax = (inputBillPriceVal) - (inputBillPriceVal / ((inputSalesTaxVal * 0.01) + 1));
-      
-      return parseFloat(tax).toFixed(2);
+    calculateTotalTax() {  
+      return parseFloat(this.taxVal).toFixed(2);
     }
-    calculateTotalTipTaxInc(inputBillPriceVal, inputTipPctVal, inputNumPeopleVal, inputSalesTaxVal) {
-      let finalTotalTip = (inputBillPriceVal * ((inputTipPctVal) * 0.01))/inputNumPeopleVal;
+    calculateTotalTipTaxInc() {
+      let finalTotalTip = (this.inputBillPriceVal * ((this.inputTipPctVal) * 0.01))/this.inputNumPeopleVal;
       
       return parseFloat(finalTotalTip).toFixed(2);
     }
-    calculateTotalOverallTaxInc(inputBillPriceVal, inputTipPctVal, inputNumPeopleVal, inputSalesTaxVal) {
-      let finalTotalTip = (inputBillPriceVal * ( 1 + (inputTipPctVal) * 0.01))/inputNumPeopleVal;
+    calculateTotalOverallTaxInc() {
+      let finalTotalTip = (this.inputBillPriceVal * ( 1 + (this.inputTipPctVal) * 0.01))/this.inputNumPeopleVal;
       
       return parseFloat(finalTotalTip).toFixed(2);
     }

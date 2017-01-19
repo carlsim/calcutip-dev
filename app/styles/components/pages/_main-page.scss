@@ -75,8 +75,11 @@
             }
           }
           .total__more-area{
-            //height: auto; 
-            transition: .3s ease-out;
+            transform: scaleY(1);
+            transform-origin: top;
+            max-height: auto;
+            opacity: 1;
+            transition: 0.12s ease-out;
           }
           .total__more-btn{
             cursor: pointer;
@@ -109,8 +112,12 @@
         margin-bottom: 32px;
       }
       .input-area__more-area{
-          transition: .3s ease-out;
-        }
+        transform: scaleY(1);
+            transform-origin: top;
+            max-height: auto;
+            opacity: 1;
+            transition: 0.12s ease-out;
+      }
       .input-area__more-btn{
         cursor: pointer;
       }

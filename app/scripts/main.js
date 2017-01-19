@@ -132,7 +132,7 @@
         this.totalMoreBtn.innerHTML = 'More Bill Info';
         this.totalMoreArea.classList.toggle("hidden");
       }
-      console.log("Clicking on toggle hide");
+      //console.log("Clicking on toggle hide");
     }
 
     toggleInputHide(evt) {
@@ -143,7 +143,7 @@
         this.inputMoreBtn.innerHTML = 'More Info';
         this.inputMoreArea.classList.toggle("hidden");
       }
-      console.log("input Clicking on toggle hide");
+      //console.log("input Clicking on toggle hide");
     }
 
     updateValues(evt) {
